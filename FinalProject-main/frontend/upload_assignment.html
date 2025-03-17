@@ -1,0 +1,22 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <title>Upload Assignment</title>
+</head>
+<body>
+    <h2>Upload Assignment Link</h2>
+    <form action="http://127.0.0.1:5000/upload_assignment" method="POST">
+        <label>Teacher Email:</label>
+        <input type="email" name="teacher_email" required><br><br>
+        
+        <label>Class:</label>
+        <input type="text" name="class_name" required placeholder="Enter class name"><br><br>
+
+        <label>Assignment Link:</label>
+        <input type="url" name="assignment_link" required><br><br>
+        
+        <button type="submit">Submit</button>
+    </form>
+</body>
+</html>
+
