@@ -40,6 +40,7 @@ def save_json(file_path, data):
 
 @app.route("/upload_notes", methods=["GET"])
 def show_upload_notes_form():
+    print("Trying to render upload_notes.html")
     return render_template("upload_notes.html")
 
 # Upload Notes API
