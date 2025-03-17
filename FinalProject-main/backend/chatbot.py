@@ -164,7 +164,7 @@ app = Flask(__name__)
 # Load trained model
 model = ChatbotModel(len(words), 8, len(responses))
 
-model.load_state_dict(torch.load("backend/chatbot_model.pth"))  # Ensure correct path
+# model.load_state_dict(torch.load("backend/chatbot_model.pth")) 
 
 model.load_state_dict(torch.load("./chatbot_model.pth"))  # Ensure correct path
 
