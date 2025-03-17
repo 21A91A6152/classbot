@@ -38,6 +38,10 @@ def save_json(file_path, data):
     with open(file_path, "w", encoding="utf-8") as file:
         json.dump(data, file, indent=4)
 
+@app.route("/upload_notes", methods=["GET"])
+def show_upload_notes_form():
+    return render_template("upload_notes.html")
+
 # Upload Notes API
 @app.route('/upload_notes', methods=['POST'])
 def upload_file():
@@ -131,6 +135,11 @@ def send_email(teacher_email, subject, message):
     except Exception as e:
         print(f"Error sending email: {e}")
 
+# Show the HTML form page
+@app.route("/upload_assignment", methods=["GET"])
+def show_upload_assignment_form():
+    return render_template("upload_assignment.html")
+
 # Upload Assignment
 @app.route("/upload_assignment", methods=["POST"])
 def handle_upload_assignment():
@@ -147,6 +156,10 @@ def handle_upload_assignment():
     send_email(teacher_email, f"New Assignment for {class_name}!", f"A new assignment has been uploaded.\nLink: {assignment_link}")
 
     return jsonify({"message": "Assignment uploaded and notification sent!"}), 200
+
+@app.route("/upload_survey", methods=["GET"])
+def show_upload_survey_form():
+    return render_template("upload_survey.html")
 
 # Upload Survey
 @app.route("/upload_survey", methods=["POST"])
