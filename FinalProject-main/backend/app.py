@@ -7,6 +7,7 @@ from email.message import EmailMessage
 from chatbot import chatbot_response
 
 app = Flask(__name__, template_folder="../frontend", static_folder='frontend')
+application=app
 CORS(app)
 
 app.secret_key = os.getenv("SECRET_KEY", "your_default_secret_key")
