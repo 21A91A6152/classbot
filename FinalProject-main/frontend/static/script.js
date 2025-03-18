@@ -126,7 +126,7 @@ function sendMessage() {
     let userMessage = document.getElementById("userInput").value;
     if (!userMessage.trim()) return;
 
-    fetch("http://127.0.0.1:5000/chat", {
+    fetch("https://classbot.onrender.com/chat", {
         method: "POST",
         headers: { "Content-Type": "application/json" },
         body: JSON.stringify({ message: userMessage })
