@@ -38,13 +38,13 @@ def save_json(file_path, data):
     with open(file_path, "w", encoding="utf-8") as file:
         json.dump(data, file, indent=4)
 
-@app.route("/upload_notes", methods=["GET"])
+@app.route("/upload_notes.html", methods=["GET"])
 def show_upload_notes_form():
     print("Trying to render upload_notes.html")
     return render_template("upload_notes.html")
 
 # Upload Notes API
-@app.route('/upload_notes', methods=['POST'])
+@app.route('/upload_notes.html', methods=['POST'])
 def upload_file():
     subject = request.form.get("subject")
     date = request.form.get("date")
@@ -137,12 +137,12 @@ def send_email(teacher_email, subject, message):
         print(f"Error sending email: {e}")
 
 # Show the HTML form page
-@app.route("/upload_assignment", methods=["GET"])
+@app.route("/upload_assignment.html", methods=["GET"])
 def show_upload_assignment_form():
     return render_template("upload_assignment.html")
 
 # Upload Assignment
-@app.route("/upload_assignment", methods=["POST"])
+@app.route("/upload_assignment.html", methods=["POST"])
 def handle_upload_assignment():
     teacher_email = request.form.get("teacher_email")
     class_name = request.form.get("class_name")
@@ -158,12 +158,12 @@ def handle_upload_assignment():
 
     return jsonify({"message": "Assignment uploaded and notification sent!"}), 200
 
-@app.route("/upload_survey", methods=["GET"])
+@app.route("/upload_survey.html", methods=["GET"])
 def show_upload_survey_form():
     return render_template("upload_survey.html")
 
 # Upload Survey
-@app.route("/upload_survey", methods=["POST"])
+@app.route("/upload_survey.html", methods=["POST"])
 def handle_upload_survey():
     teacher_email = request.form.get("teacher_email")
     class_name = request.form.get("class_name")
